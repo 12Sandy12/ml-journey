@@ -1,12 +1,20 @@
 # it is just simple example of OOP / inheritance and using self rather than traditional attributes name evrytime we make a function
+# we used dunder methods specifically __init__ and __str__
 
 
 
 class City:
+    def __str__(self):
+        message = (f"{self.name}, {self.population}, {self.location }" )
+        # return(self.name+(str)(self.population)+self.location)
+        return(message)
+    
+
     def __init__(self,name,location,population):
         self.name = name
         self.location = location
         self.population = population
+        
 
     def get_weather_data( self):
         pass
@@ -15,6 +23,8 @@ class City:
         print(f"Name: {self.name}, Location: {self.location}  Population: {self.population}")
 
 class Capital(City):
+   
+        
     def __init__ (self,name, location, population, government):
         super().__init__(name,location,population)
         self.government = government
@@ -25,6 +35,9 @@ class Capital(City):
     def Display_gov(self):
         super().display()
         print(f"GovernmentType :{self.government}")
+    
+
+
 
 
 # NewCity1 = City("newwyork" , "UnitedStates",200000000)
@@ -36,3 +49,4 @@ class Capital(City):
 newCapital1 = Capital("newwyork" , "UnitedStates",200000000, "Republican")
 newCapital1.Display_gov() 
 newCapital1.display()
+print(newCapital1)
